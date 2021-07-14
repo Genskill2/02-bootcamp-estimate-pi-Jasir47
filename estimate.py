@@ -1,5 +1,35 @@
 import math
 import unittest
+import random
+
+def wallis(n):
+   list3 = []
+   for i in range(1,n+1):
+     r = (4*i**2)/((4*i**2)-1) 
+     list3.append(r)
+   result = 1
+   for x in list3:
+      result = result*x
+   return(2*result)
+   
+
+def monte_carlo(i):
+   lists1 = [] 
+   lists2 = [] 
+   for num in range(i) :
+       
+       x = random.random()
+       y = random.random()
+       distance = ((x**2)+(y**2))**(1/2)
+       
+
+       if distance <= 1:
+        lists1.append(1) 
+       else:
+        lists2.append(1)
+        
+   print(4*(len(lists1)/(len(lists1)+len(lists2))))
+   return(4*(len(lists1)/(len(lists1)+len(lists2))))
 
 class TestWallis(unittest.TestCase):
     def test_low_iters(self):
